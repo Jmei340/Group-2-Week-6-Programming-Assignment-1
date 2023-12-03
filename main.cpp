@@ -11,13 +11,18 @@ using namespace std;
 // Add any other header files here
 
 ///////////////////////////////////////
-void ReadStoreData(string Storing[50], string Names[10], int Scores[10][4]) {
+void ReadStoreData(string Storing[50], string Names[10], int Scores[10][5]) {
     // Declaring Variables
     string element;
     int rows;
     int i = 0;
+    int index = 0;
+    int index_2 = 0;
+    int index_3 = 0;
+    int index_4 = 0;
     int j = 0;
     int columns;
+    int Skip = 0;
 
     // Getting File
     fstream infile;
@@ -30,22 +35,76 @@ void ReadStoreData(string Storing[50], string Names[10], int Scores[10][4]) {
         }
     }
 
-    //Storing Names
-    for (j = 0; j < 10; j + 4) {
+    // Storing Names
+    for (j = 0; j < 10; j++) {
+        Names[j] = Storing[index];
+        index = index + 5;
+    }
 
+    // Storing Scores
+    for (index_2 = 0; index_2 < 10; index_2++) {
+        for (index_3 = 0; index_3 < 5; index_3++) {
+
+            // Skipping Names
+            if (index_4 == 0) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 5) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 10) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 15) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 20) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 25) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 30) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 35) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 40) {
+                Skip++;
+                index_4++;
+            }
+            else if (index_4 == 45) {
+                Skip++;
+                index_4++;
+            }
+
+            // Storing Scores
+            else {
+                Scores[index_2][index_3] = stoi(Storing[index_4]);
+                index_4++;
+
+            }
+        }
     }
 }
 
-void CalculatingAverage(int Scores[10][4], int AverageScores[10]) {
+void CalculatingAverage(int Scores[10][5], int AverageScores[10]) {
     // Declaring Variables
     int rows;
     int columns;
+    const int AverageConversion = 4;
 
-    for (rows = 0; rows < 10; rows++) {
-        for (columns = 0; columns < 5; columns++) {
 
-        }
-    }
+
 
 }
 
@@ -98,16 +157,16 @@ int main()
     // Declaring Variables
     string Storing[50] = { "0" };
     string Names[10] = { "a","b","c","d","e","f","g","h","i","j" };
-    int Scores[10][4] = { {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0},
-                         {0, 0, 0, 0} };
+    int Scores[10][5] = { {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0},
+                          {0, 0, 0, 0, 0} };
     int AverageScores[10] = { 0 };
 
     ReadStoreData(Storing, Names, Scores);         //"In Progress"
