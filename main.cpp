@@ -1,5 +1,5 @@
 // Bowling League Average Scores
-// Programmers: Fadi Jameel, Joey Mei.
+// Programmers: Fadi Jameel (Left Group), Joey Mei.
 // This program will calculate the average scores from the Bowling League.
 
 #include <iostream>
@@ -308,6 +308,7 @@ int main()
                           {0, 0, 0, 0, 0} };
     int AverageScores[10] = { 0 };
 
+    // Calling Functions
     ReadStoreData(Storing, Names, Scores);
     CalculatingAverage(Scores, AverageScores);
     OutputResults(Names, Scores, AverageScores);
